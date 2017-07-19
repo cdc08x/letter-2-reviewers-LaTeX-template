@@ -1,0 +1,136 @@
+% requires packages:
+% To check whether the document is in its final version or not
+\RequirePackage{ifdraft}
+% To color text
+\RequirePackage{xcolor}
+% To make smart references
+\RequirePackage{cleveref}
+%
+\geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=15mm,
+ right=15mm,
+ top=15mm,
+ bottom=25mm,
+ marginparwidth=15mm
+}
+%
+\renewcommand\Affilfont{\itshape\small}
+
+% Counter for comments
+\newcounter{commentcnt}
+% Refine the comment counters by using the Roman numbering system. Notice that the new counter {commentcnt} automatically creates \thecommentcnt as a new command, which has to be overwritten.
+\renewcommand{\thecommentcnt}{\Roman{commentcnt}}
+% To use cleveref with this environment
+\Crefname{commentcnt}{Comment}{Comment}
+
+\newenvironment{ReviewerComment}[2][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} %
+% If an optional argument is passed, it is used as the label of the environment
+\ifx\empty#1\relax\else#1\fi%
+(Reviewer #2): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+%
+\newenvironment{ReviewerCommentReprise}{\noindent\vspace{-1.25cm}%
+\begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}}
+%
+\newenvironment{ReviewerReply}{\noindent \textbf{Feedback: } \begin{quotation}\begin{em}}{\end{em}\end{quotation}}
+%
+\newenvironment{GuestEditorComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Guest Editor): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+%
+\newenvironment{AreaEditorComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Area Editor): }\nopagebreak \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+%
+\newenvironment{EditorComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Editor in Chief): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+%
+\newenvironment{MetaReviewComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Meta-review): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+%
+\newenvironment{Answer}{\noindent \textbf{Answer: }}{\\[1cm]}
+%
+\newenvironment{AnswerInBetween}{\noindent \textbf{Answer: }}{\vspace{1cm}}
+%
+% \newcommand{\NoteInEvidence}[1]{\color{GreenYellow}{\textbf{#1}}}
+
+
+\newcommand{\NoteInEvidence}[1]{\ifoptiondraft{\hl{#1}}{}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Task difficulty assessment and work status boxes
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\TaskEstimationBox}[2]{%
+\ifoptiondraft{\newline \parbox{1.0\linewidth}{\hfill \hfill {\colorbox{#2}{\color{White} \textbf{#1}}}}}%
+{}%
+}
+%
+\def\WorkInProgressRevTask {\TaskEstimationBox{Work in progress}{Cyan}}
+\def\AlmostDoneRevTask {\TaskEstimationBox{Almost there}{NavyBlue}}
+\def\RevTaskDone {\TaskEstimationBox{Done}{Blue}}
+%
+\def\NotEstimatedRevTask {\TaskEstimationBox{Effort not estimated}{Gray}}
+\def\EasyRevTask {\TaskEstimationBox{Feasible}{ForestGreen}}
+\def\MediumRevTask {\TaskEstimationBox{Medium effort}{Orange}}
+\def\TimeConsumingRevTask {\TaskEstimationBox{Time-consuming}{Bittersweet}}
+\def\HardRevTask {\TaskEstimationBox{Hard one}{Sepia}}
+\def\DeathRevTask {\TaskEstimationBox{Death}{Black}}
+%
+\newcommand{\Assignment}[1]{
+%
+\ifoptiondraft{%
+\newline \parbox{1.0\linewidth}{\hfill \hfill \textbf{Assignment:} #1}%
+}{}%
+}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Put some space to separate reviewers comments
+%
+\newcommand{\SkipSpaceForReviewerComments}{\vspace{6em}}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Add notes to be removed when the letter is not a draft any more
+%
+% To color text
+\RequirePackage{xcolor}
+\newenvironment{NoteForAuthors}%
+  {\ifoptiondraft{%
+      \noindent%
+      \colorbox{gray}%
+      {\color{white} Note: }%
+      \color{orange}%
+      \begin{em}%
+    }{}%
+  }%
+  {\ifoptiondraft{%
+      \normalcolor%
+      \end{em}%
+    }{}%
+  }
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Highlight changes in revised manuscripts
+%
+% To color text
+\RequirePackage{xcolor}
+% To create side-notes
+\RequirePackage{marginnote}
+% Change the following line for larger (or narrower) side spaces
+\setlength{\marginparwidth}{1cm}
+% Change the following line for bigger (or smaller) fonts
+\renewcommand*{\marginfont}{\footnotesize}
+
+\newenvironment{HlRev}[1][]{%
+	% No hyperrefs here
+	\begin{NoHyper}
+		% Change the colour to olive green
+		\color{OliveGreen}%
+		% If an argument is passed, it is used as the number of the comment in a side note
+		\ifx\newenvironment#1\newenvironment\else\marginnote{Comment #1}\fi%
+		%
+	}{%
+		% Restores the normal colour
+		\normalcolor%
+		% Restores the normal hyperref behaviour
+	\end{NoHyper}%
+}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%

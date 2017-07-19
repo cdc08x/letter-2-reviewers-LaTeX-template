@@ -1,0 +1,75 @@
+% Uncomment the following line to have comments hihglighted
+\documentclass[9pt,draft]{extarticle}
+% Uncomment the following line to disable comments and highlights
+% \documentclass[9pt,final]{extarticle}
+
+\input{addon/pkgloading-for-letter-to-reviewers.tex}
+\input{addon/commands-for-letter-to-reviewers}
+
+% Defines the path for the main output file (so as to cross-reference sections, figures, table there, by prepending "paper:" to the original label )
+\externaldocument[paper:]{../LNCS-skeleton/main}
+
+\def\PaperTitle{Title of the paper}
+\def\PaperId{{JRNL\_YEAR\_NUM}}
+\def\SpecialIssueId{{SI:CONF20XX}}
+\def\Journal{{Journal of Something}}
+
+\def\AuthorsInLetter{Claudio~{Di~Ciccio}, Author Ecs, Writer Why, Contributor Zed}
+
+
+%opening
+\title{\textbf{\PaperTitle} \\ {\Large Revision notes}}
+%
+%
+\author[1]{Claudio~{Di~Ciccio}%
+  \thanks{Corresponding author \\
+    {\Letter}~{Wirtschafsuniversit\"{a}t Wien, Welthandelsplatz 1, 1020 Vienna, Austria} \\
+    {\Email}~\texttt{\href{mailto:claudio.di.ciccio@wu.ac.at}{claudio.di.ciccio@wu.ac.at}} \\
+    {\Telefon}~\textsf{+43 1 ​31336 5222}%
+  }
+}
+%
+\author[2]{Author Ecs}
+%
+\author[3]{Writer Why}
+%
+\author[3]{Contributor Zed}
+%
+\affil[1]{Vienna University of Economics and Business, Austria}
+\affil[2]{University of City, World}
+\affil[3]{City University, World}
+
+%
+\date{}
+\begin{document}
+
+\maketitle
+
+\input{intro}
+\vfill
+\input{manuscriptinfo}
+\vfill
+\pagebreak
+
+%\input{revision-notes/guesteditor}
+
+%\SkipSpaceForReviewerComments
+
+\input{revision-notes/reviewer1}
+
+\SkipSpaceForReviewerComments
+
+\input{revision-notes/reviewer2}
+
+\SkipSpaceForReviewerComments
+
+\input{revision-notes/reviewer3}
+
+% Remove it when you are done
+\ifoptiondraft{
+\pagebreak
+\section*{How to use commands for this response letter}
+\input{revision-notes/revisionnotes-example}
+}{}
+
+\end{document}
