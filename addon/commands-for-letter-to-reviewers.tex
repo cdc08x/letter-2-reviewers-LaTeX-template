@@ -25,6 +25,11 @@
 % To use cleveref with this environment
 \Crefname{commentcnt}{Comment}{Comment}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Environments for comments and replies
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{ReviewerComment}[2][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} %
 % If an optional argument is passed, it is used as the label of the environment
 \ifx\empty#1\relax\else#1\fi%
@@ -36,6 +41,8 @@
 \newenvironment{ReviewerReply}{\noindent \textbf{Feedback: } \begin{quotation}\begin{em}}{\end{em}\end{quotation}}
 %
 \newenvironment{GuestEditorComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Guest Editor): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+%
+\newenvironment{AssociateEditorComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Associate Editor): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
 %
 \newenvironment{AreaEditorComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Area Editor): }\nopagebreak \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
 %

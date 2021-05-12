@@ -3,14 +3,18 @@
 % Uncomment the following line to disable comments and highlights
 % \documentclass[9pt,final]{extarticle}
 
-\input{addon/pkgloading-for-letter-to-reviewers.tex}
+\input{addon/pkgloading-for-letter-to-reviewers}
 \input{addon/commands-for-letter-to-reviewers}
+%
+% Bibliography management
+\usepackage[square,comma,numbers,sort,sectionbib,nonamebreak]{natbib}
 
 % Defines the path for the main output file (so as to cross-reference sections, figures, table there, by prepending "paper:" to the original label )
 \externaldocument[paper:]{../LNCS-skeleton/main}
 
 \def\PaperTitle{Title of the paper}
 \def\PaperId{{JRNL\_YEAR\_NUM}}
+\def\PaperRevision{1}
 \def\SpecialIssueId{{SI:CONF20XX}}
 \def\Journal{{Journal of Something}}
 
@@ -23,9 +27,9 @@
 %
 \author[1]{Claudio~{Di~Ciccio}%
   \thanks{Corresponding author \\
-    {\Letter}~{Wirtschafsuniversit\"{a}t Wien, Welthandelsplatz 1, 1020 Vienna, Austria} \\
-    {\Email}~\texttt{\href{mailto:claudio.di.ciccio@wu.ac.at}{claudio.di.ciccio@wu.ac.at}} \\
-    {\Telefon}~\textsf{+43 1 ​31336 5222}%
+    {\Letter}~{Sapienza Università di Roma, Viale Regina Elena 295, 00161 Rome, Italy} \\
+    {\Email}~\texttt{\href{mailto:claudio.diciccio@uniroma1.it}{claudio.diciccio@uniroma1.it}} \\
+    {\Telefon}~\textsf{+39 123 456 7890}%
   }
 }
 %
@@ -35,9 +39,9 @@
 %
 \author[3]{Contributor Zed}
 %
-\affil[1]{Vienna University of Economics and Business, Austria}
-\affil[2]{University of City, World}
-\affil[3]{City University, World}
+\affil[1]{Sapienza University of Rome, Italy}
+\affil[2]{University of a City, World}
+\affil[3]{The City University, World}
 
 %
 \date{}
@@ -64,7 +68,20 @@
 \SkipSpaceForReviewerComments
 
 \input{revision-notes/reviewer3}
-
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Back matter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\bibliographystyle{unsrtnat}
+%\bibliography{bibliography/bib}
+%
+%
 % Remove it when you are done
 \ifoptiondraft{
 \pagebreak
