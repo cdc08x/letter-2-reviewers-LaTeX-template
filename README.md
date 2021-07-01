@@ -1,7 +1,7 @@
 # letter-2-reviewers-LaTeX-template
 A LaTeX template to write response letters for journal revisions. Please find detailed usage instructions directly in the `letter.pdf` file.
 
-This template has been used in the course of the revision rounds of the publications below. It goes without saying, the list is biased by the author’s personal experience. If you want to share your experience with this template, feel free to do so, e.g., via Twitter [@cdc08x](https://twitter.com/cdc08x). For any questions or comments, drop me a line at [mailto:dc.claudio@gmail.com](dc.claudio@gmail.com)!
+This template has been used in the course of the revision rounds of the publications below. It goes without saying, the list is biased by the author’s personal experience. If you want to share your experience with this template, feel free to do so, e.g., via Twitter [@cdc08x](https://twitter.com/cdc08x). For any questions or comments, drop me a line at [dc.claudio@gmail.com](mailto:dc.claudio@gmail.com)!
 
 * [Visual Drift Detection for Event Sequence Data of Business Processes](http://dx.doi.org/10.1109/TVCG.2021.3050071) (IEEE Transactions on Visualization and Computer Graphics, 2020)
 * [Conformance checking of mixed-paradigm process models](https://doi.org/10.1016/j.is.2020.101685) (Information Systems, 2020)
