@@ -23,17 +23,17 @@
 % Refine the comment counters by using the Roman numbering system. Notice that the new counter {commentcnt} automatically creates \thecommentcnt as a new command, which has to be overwritten.
 \renewcommand{\thecommentcnt}{\Roman{commentcnt}}
 % To use cleveref with this environment
-\Crefname{commentcnt}{Comment}{Comment}
+\Crefname{commentcnt}{Comment}{Comments}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Environments for comments and replies
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newenvironment{ReviewerComment}[2][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} %
+\newenvironment{ReviewerComment}[2][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt}%
 % If an optional argument is passed, it is used as the label of the environment
-\ifx\empty#1\relax\else#1\fi%
-(Reviewer #2): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+\ifx\empty#1\relax\else#1\fi% 
+:} \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
 %
 \newenvironment{ReviewerCommentReprise}{\noindent\vspace{-1.25cm}%
 \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}}
@@ -121,25 +121,37 @@
 \RequirePackage{xcolor}
 % To create side-notes
 \RequirePackage{marginnote}
-% Change the following line for larger (or narrower) side spaces
+
+%%%% Change the following line for larger (or narrower) side spaces
 \setlength{\marginparwidth}{1cm}
+\def\HlRevInnerWidth{0.75cm}
 % Change the following line for bigger (or smaller) fonts
 \renewcommand*{\marginfont}{\footnotesize}
 
+\definecolor{burntorange}{rgb}{0.8, 0.33, 0.0}
+\ExplSyntaxOn
 \newenvironment{HlRev}[1][]{%
-	% No hyperrefs here
-	\begin{NoHyper}
-		% Change the colour to olive green
-		\color{OliveGreen}%
+		% Change the colour to orange
+		\color{burntorange}%
 		% If an argument is passed, it is used as the number of the comment in a side note
-		\ifx\newenvironment#1\newenvironment\else\marginnote{Comment #1}\fi%
+		\ifx\newenvironment#1\newenvironment\else\marginnote{\parbox[t]{\HlRevInnerWidth}{% \raggedright%
+			% No hyperrefs in side-notes
+			\begin{NoHyper}
+				\clist_set:Nn \l_tmpa_clist {#1}% Get the comma-separated list of comment references
+				\int_set:Nn \l_tmpa_int { \clist_count:N \l_tmpa_clist }% Count the number of items in the list
+				\hspace*{0pt}% Trick to allow the first word to be hyphenised if need be
+				Comment% Write ``Comment''
+				\int_compare:nT { \l_tmpa_int > 1 }{s}% Add an s (Comment*s*) if there are multiple comments inside
+				{\ #1}% Write the referred comment(s)
+			% Restores the normal hyperref behaviour
+			\end{NoHyper}%
+		}}\fi%
 		%
 	}{%
 		% Restores the normal colour
 		\normalcolor%
-		% Restores the normal hyperref behaviour
-	\end{NoHyper}%
-}
+}%
+\ExplSyntaxOff
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

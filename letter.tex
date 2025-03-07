@@ -10,7 +10,7 @@
 \usepackage[square,comma,numbers,sort,sectionbib,nonamebreak]{natbib}
 
 % Defines the path for the main output file (so as to cross-reference sections, figures, table there, by prepending "paper:" to the original label )
-\externaldocument[paper:]{../LNCS-skeleton/main}
+\externaldocument[paper:]{../manuscript}
 
 \def\PaperTitle{Title of the paper}
 \def\PaperId{{JRNL\_YEAR\_NUM}}
@@ -28,9 +28,9 @@
 %
 \author[1]{Claudio~{Di~Ciccio}%
   \thanks{Corresponding author \\
-    {\Letter}~{Sapienza Università di Roma, Viale Regina Elena 295, 00161 Rome, Italy} \\
-    {\Email}~\texttt{\href{mailto:claudio.diciccio@uniroma1.it}{claudio.diciccio@uniroma1.it}} \\
-    {\Telefon}~\textsf{+39 123 456 7890}%
+    {\Letter}~{Utrecht University, Princetonplein 5, 3584 CC Utrecht, Netherlands} \\
+    {\Email}~\texttt{\href{mailto:c.diciccio@uu.nl}{c.diciccio@uu.nl}} \\
+    {\Telefon}~\textsf{+12 3 456 7890}%
   }
 }
 %
@@ -75,19 +75,20 @@
 % Back matter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+%
+% Remove it when you are done
+\ifoptiondraft{
+	\pagebreak
+	\section*{How to use commands for this response letter}
+	\input{revision-notes/revisionnotes-example}
+	\pagebreak
+}{}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\bibliographystyle{unsrtnat}
-%\bibliography{bibliography/bib}
-%
-%
-% Remove it when you are done
-\ifoptiondraft{
-\pagebreak
-\section*{How to use commands for this response letter}
-\input{revision-notes/revisionnotes-example}
-}{}
+\bibliographystyle{unsrtnat}
+\bibliography{bibliography/bib}
 
 \end{document}
