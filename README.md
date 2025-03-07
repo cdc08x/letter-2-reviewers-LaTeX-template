@@ -7,6 +7,7 @@ This template has been used in the course of the revision rounds of a number of 
 * [Tiramisù: making sense of multi-faceted process information through time and space](http://dx.doi.org/10.1007/s10844-024-00875-8) (Journal of Intelligent Information Systems, 2024)
 * [Event-case correlation for process mining using probabilistic optimization](http://dx.doi.org/10.1016/j.is.2023.102167) (Information Systems, 2023)
 * [Measuring the interestingness of temporal logic behavioral specifications in process mining](http://dx.doi.org/10.1016/j.is.2021.101920) (Information Systems, 2022)
+* [On the adoption of blockchain for business process monitoring](http://dx.doi.org/10.1007/s10270-021-00959-x) (Software & Systems Modeling, 2022)
 * [Visual Drift Detection for Event Sequence Data of Business Processes](http://dx.doi.org/10.1109/TVCG.2021.3050071) (IEEE Transactions on Visualization and Computer Graphics, 2021)
 * [Conformance checking of mixed-paradigm process models](https://doi.org/10.1016/j.is.2020.101685) (Information Systems, 2020)
 * [On the Relevance of a Business Constraint to an Event Log](https://doi.org/10.1016/j.is.2018.01.011) (Information Systems, 2018)
