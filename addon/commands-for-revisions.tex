@@ -1,0 +1,53 @@
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Highlight changes in revised manuscripts
+%
+% To color text
+\RequirePackage{xcolor}
+% To create side-notes
+\RequirePackage{marginnote}
+% To treat comma-separated input parameters (see the HlRev environment below)
+\RequirePackage{xparse}
+% To cross-reference the revision letter
+\RequirePackage{xr}
+
+% Change the following lines for larger (or narrower) side spaces
+\setlength{\marginparwidth}{2.75cm}
+\def\HlRevInnerWidth{2.15cm}
+
+\renewcommand*{\raggedleftmarginnote}{\raggedright}
+\renewcommand*{\raggedrightmarginnote}{\raggedleft}
+
+% Change the following line for bigger (or smaller) fonts
+\renewcommand*{\marginfont}{\normalsize}
+
+\definecolor{burntorange}{rgb}{0.8, 0.33, 0.0}
+\ExplSyntaxOn
+\newenvironment{HlRev}[1][]{%
+		% Change the colour to orange
+		\color{burntorange}%
+		% If an argument is passed, it is used as the number of the comment in a side note
+		\ifx\newenvironment#1\newenvironment\else\marginnote{\parbox[t]{\HlRevInnerWidth}{\raggedright%
+		% No hyperrefs in side-notes
+		\begin{NoHyper}
+			\clist_set:Nn \l_tmpa_clist {#1}% Get the comma-separated
+			\int_set:Nn \l_tmpa_int { \clist_count:N \l_tmpa_clist }
+			\hspace*{0pt}% Trick to allow the first word to be hyphenised if need be
+			Comment% Write ``Comment''
+			\int_compare:nT { \l_tmpa_int > 1 }{s}% Add an s (Comment*s*) if there are multiple comments inside
+			{\ #1}% Write the referred comment(s)
+		% Restores the normal hyperref behaviour
+		\end{NoHyper}%
+		}}\fi%
+		%
+	}{%
+		% Restores the normal colour
+		\normalcolor%
+	}%
+\ExplSyntaxOff
+
+% Defines the path for the main accompanying letter file (so as to cross-reference reviewers' remarks by prepending "letter:" to the original label )
+\externaldocument[letter:]{response/letter}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
