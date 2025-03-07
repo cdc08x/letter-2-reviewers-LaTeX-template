@@ -1,7 +1,7 @@
 # letter-2-reviewers-LaTeX-template
 A LaTeX template to write response letters for journal revisions. Please find detailed usage instructions directly in the `letter.pdf` file.
 
-This template has been used in the course of the revision rounds of a number of publications, including the ones below. It goes without saying, the list is biased by the author’s personal experience. If you want to share your experience with this template, feel free to do so (e.g., via LinkedIn [linkedin.com/in/claudiodiciccio](https://www.linkedin.com/in/claudiodiciccio/)). For any questions or comments, drop me a line at [claudio@diciccio.net](mailto:claudio@diciccio.net)!
+This template has been used in the course of the revision rounds of a number of publications, including the ones below. It goes without saying, the list is biased by the author’s personal experience. If you want to share your experience with this template, feel free to do so (e.g., via LinkedIn [linkedin.com/in/claudiodiciccio](https://www.linkedin.com/in/claudiodiciccio/)). Kudos to [apwbs](https://github.com/apwbs/) for the fine tuning and support. For any questions or comments, drop me a line at [claudio@diciccio.net](mailto:claudio@diciccio.net)!
 
 * [Measuring rule-based LTLf process specifications: A probabilistic data-driven approach](https://doi.org/10.1016/j.is.2023.102312) (Information Systems, 2024)
 * [Tiramisù: making sense of multi-faceted process information through time and space}(http://dx.doi.org/10.1007/s10844-024-00875-8) (Journal of Intelligent Information Systems, 2024)
@@ -16,4 +16,4 @@ This template has been used in the course of the revision rounds of a number of 
 * [Detecting flight trajectory anomalies and predicting diversions in freight transportation](http://dx.doi.org/10.1016/j.dss.2016.05.004) (Decision Support Systems, 2016)
 * [Efficient discovery of Target-Branched Declare constraints](https://doi.org/10.1016/j.is.2015.06.009) (Information Systems, 2016)
 
-
+![A screenshot of the letter's first page](letter.jpg)
