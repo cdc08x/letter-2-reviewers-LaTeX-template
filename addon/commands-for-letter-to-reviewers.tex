@@ -18,10 +18,19 @@
 %
 \renewcommand\Affilfont{\itshape\small}
 
+% Command for new Reviewer's header
+\newcounter{thereviewer}
+\newcommand{\ReviewerSection}[0]{\refstepcounter{thereviewer}\section*{Reviewer \Roman{thereviewer}}}
+
+
 % Counter for comments
 \newcounter{commentcnt}
+\counterwithout*{commentcnt}{thereviewer}
 % Refine the comment counters by using the Roman numbering system. Notice that the new counter {commentcnt} automatically creates \thecommentcnt as a new command, which has to be overwritten.
-\renewcommand{\thecommentcnt}{\Roman{commentcnt}}
+\makeatletter
+\renewcommand{\thecommentcnt}{\ifnum\c@thereviewer>0%
+	\Roman{thereviewer}.\fi%
+	\arabic{commentcnt}}
 % To use cleveref with this environment
 \Crefname{commentcnt}{Comment}{Comments}
 
@@ -30,7 +39,7 @@
 % Environments for comments and replies
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newenvironment{ReviewerComment}[2][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt}%
+\newenvironment{ReviewerComment}[1][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt}%
 % If an optional argument is passed, it is used as the label of the environment
 \ifx\empty#1\relax\else#1\fi% 
 :} \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
@@ -40,17 +49,36 @@
 %
 \newenvironment{ReviewerReply}{\noindent \textbf{Feedback: } \begin{quotation}\begin{em}}{\end{em}\end{quotation}}
 %
-\newenvironment{GuestEditorComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Guest Editor): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+\newenvironment{GuestEditorComment}[1][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt}%
+% If an optional argument is passed, it is used as the label of the environment
+\ifx\empty#1\relax\else#1\fi% 
+~(Guest Editor): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
 %
-\newenvironment{AssociateEditorComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Associate Editor): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+\newenvironment{AssociateEditorComment}[1][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt}%
+% If an optional argument is passed, it is used as the label of the environment
+\ifx\empty#1\relax\else#1\fi% 
+~(Associate Editor): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
 %
-\newenvironment{AreaEditorComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Area Editor): }\nopagebreak \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+\newenvironment{AreaEditorComment}[1][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt}
 %
-\newenvironment{EditorComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Editor): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+% If an optional argument is passed, it is used as the label of the environment
+\ifx\empty#1\relax\else#1\fi% 
+~(Area Editor): }\nopagebreak \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
 %
-\newenvironment{EditorInChiefComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Editor in Chief): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+\newenvironment{EditorComment}[1][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt}%
+% If an optional argument is passed, it is used as the label of the environment
+\ifx\empty#1\relax\else#1\fi% 
+~(Editor): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
 %
-\newenvironment{MetaReviewComment}{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt} (Meta-review): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+\newenvironment{EditorInChiefComment}[1][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt}%
+% If an optional argument is passed, it is used as the label of the environment
+\ifx\empty#1\relax\else#1\fi% 
+~(Editor in Chief): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
+%
+\newenvironment{MetaReviewComment}[1][]{\noindent\begin{minipage}[t]{\textwidth}\noindent \textbf{Comment \refstepcounter{commentcnt}{\thecommentcnt}%
+% If an optional argument is passed, it is used as the label of the environment
+\ifx\empty#1\relax\else#1\fi% 
+~(Meta-review): } \begin{quotation}\noindent\begin{em}}{\end{em}\end{quotation}\vspace{1ex}\end{minipage}}
 %
 \newenvironment{Answer}{\noindent \textbf{Answer: }}{\\[1cm]}
 %

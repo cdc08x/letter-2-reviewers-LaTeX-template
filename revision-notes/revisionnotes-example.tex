@@ -1,7 +1,6 @@
 % !TeX root = letter.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-This template was used, among others, for the letters produced during the revision rounds of~\cite{Cecconi.etal/IS2024:MeasuringRuleBasedLTLfSpecifications}.
 \begin{NoteForAuthors}
 	If you wish to remove this instructions page, just turn the \verb|\documentclass| command in \texttt{letter.tex}
 	\\
@@ -11,13 +10,17 @@ This template was used, among others, for the letters produced during the revisi
 \end{NoteForAuthors}
 \bigskip
 
-\begin{ReviewerComment}[\label{memo:example:comment}]{N}
-Comment of Reviewer N.
+\noindent
+Begin a new section for another reviewer with \verb*|\ReviewerSection|. This command will print a new unnumbered section's title and advance a special counter named \verb*|thereviewer|. See below.
+
+\ReviewerSection
+\begin{ReviewerComment}[\label{memo:example:comment}]
+Comment of Reviewer \Roman{thereviewer}.
 \end{ReviewerComment}
 %
 \begin{Answer}
 \begin{sloppypar}
-Reply of the authors.
+Reply of the authors. Notice that the Reviewer's number is given by the counter (\verb*|thereviewer|). The comment's counter increases automatically at every new \verb*|\begin{ReviewerComment}...\end{ReviewerComment}|. In the {\LaTeX} code of this very part, you might notice that we pass an optional parameter when beginning the \verb*|ReviewerComment| environment: \verb*|\label{memo:example:comment}|. It is a label to be used later on for references (\verb*|ref| and \verb*|cref|; see below).
 %
 %
 \paragraph{Task assignment and degree of difficulty.}
@@ -58,7 +61,7 @@ Do you like it? To make it work, make sure to import the \verb|addon/commands-fo
 \paragraph{References.}
 Please notice that to refer to comments within the document, they first must be labelled with an optional parameter:
 \begin{verbatim}
-\begin{ReviewerComment}[\label{memo:example:comment}]{N}
+\begin{ReviewerComment}[\label{memo:example:comment}]
 \end{verbatim}
 Later on, also the \verb|\cref{memo:example:comment}| command can be used, to automatically obtain: \cref{memo:example:comment}.
 
@@ -72,28 +75,28 @@ Please alter the line in \texttt{letter.tex} according to the location of the ma
 \begin{verbatim}
 	\externaldocument[paper:]{../manuscript}
 \end{verbatim}
+Bibliographic references are, of course, welcome (e.g., we can mention here a few articles and conference papers whose revisions were accompanied by letters created with this template~\cite{Yeshchenko.etal/TVCG2022:VisualDriftDetectionEventSequenceDataBusinessProcesses,Cecconi.etal/IS2024:MeasuringRuleBasedLTLfSpecifications,Basile.DiCiccio/BPM2025:SecrecyPreservationOnline,}). See the lines at the end of the \textit{letter.tex} (main) file.
 %
 \paragraph{Other ``comment'' environments.}
-Notice that there are several environments other than \verb|ReviewerComment| to specify the role of who wrote the review, such as \verb|GuestEditorComment|, \verb|MetaReviewComment|, \verb|EditorComment|, and the others you can find in:\\
-\texttt{addon/commands-for-letter-to-reviewers.tex}.
+Notice that there are several environments other than \verb|ReviewerComment| to specify the role of who wrote the review, such as \verb|GuestEditorComment|, \verb|MetaReviewComment|, \verb|EditorComment|, and the others you can find in: \texttt{addon/commands-for-letter-to-reviewers.tex}. It is advisable not to introduce those with \verb*|\ReviewerSection| unless you want the reviewer's counter to increase accordingly. A regular \verb*|\section*{...}| (e.g., \verb*|\section*{Meta-review}| or \verb|\section*{Editor's comments}|) will do. Comment headers will then be printed without any preceding roman digits (e.g., numbered with \arabic{commentcnt} in place of \Roman{thereviewer}.\arabic{commentcnt}).
 \end{sloppypar}
-In the following, a couple examples are given. Later on in this page, the different levels of difficulty and the statuses of the referred modifications are listed.
+In the following, a couple examples are given. Later on in this page, the different levels of difficulty and the statuses of the referred modifications are listed. Look at the {\LaTeX} code of this page for more information.
 \end{Answer}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\begin{ReviewerComment}{N}
-	Comment of Reviewer N.
+\begin{ReviewerComment}
+	Another comment of Reviewer \Roman{thereviewer}.
 \end{ReviewerComment}
 %
 \begin{Answer}
-	Reply to Reviewer.
+	Reply to Reviewer \Roman{thereviewer}.
 	\Assignment{Author} \NotEstimatedRevTask
 \end{Answer}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\begin{ReviewerComment}{N}
+\begin{ReviewerComment}
 Start of the reviewer's comment.
 \end{ReviewerComment}
 %

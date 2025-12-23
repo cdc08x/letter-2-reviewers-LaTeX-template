@@ -3,6 +3,8 @@ A LaTeX template to write response letters for journal revisions. Please find de
 
 This template has been used in the course of the revision rounds of a number of publications, including the ones below. It goes without saying, the list is biased by the author’s personal experience. If you want to share your experience with this template, feel free to do so (e.g., via LinkedIn [linkedin.com/in/claudiodiciccio](https://www.linkedin.com/in/claudiodiciccio/)). For any questions or comments, drop me a line at [claudio@diciccio.net](mailto:claudio@diciccio.net)!
 
+* [Secrecy Preservation for Online Process Monitoring with Trusted Execution Environment](https://doi.org/10.1007/978-3-032-02867-9_15) (Proc. of BPM, 2025)
+* [Tiramisù: making sense of multi-faceted process information through time and space}(http://dx.doi.org/10.1007/s10844-024-00875-8) (Journal of Intelligent Information Systems, 2024)
 * [Measuring rule-based LTLf process specifications: A probabilistic data-driven approach](https://doi.org/10.1016/j.is.2023.102312) (Information Systems, 2024)
 * [Tiramisù: making sense of multi-faceted process information through time and space}(http://dx.doi.org/10.1007/s10844-024-00875-8) (Journal of Intelligent Information Systems, 2024)
 * [Event-case correlation for process mining using probabilistic optimization](http://dx.doi.org/10.1016/j.is.2023.102167) (Information Systems, 2023)
