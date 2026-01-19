@@ -1,9 +1,12 @@
 # letter-2-reviewers-LaTeX-template
-A LaTeX template to write response letters for journal revisions. Please find detailed usage instructions directly in the [`letter.pdf`](letter.pdf) file (page 3).
+A LaTeX template to write response letters for journal and conference paper revisions. It comes bundled with commands that add sidenotes to the paper referencing the comments they address. Please find detailed usage instructions directly in the [`letter.pdf`](letter.pdf) file (page 3).
 
 ![A montage of the letter's pages](letter-montage.jpg)
 
-This template has been used in the course of the revision rounds of a number of publications, including the ones below. It goes without saying, the list is biased by the author’s personal experience. If you want to share your experience with this template, feel free to do so (e.g., via LinkedIn [linkedin.com/in/claudiodiciccio](https://www.linkedin.com/in/claudiodiciccio/)). Kudos to [apwbs](https://github.com/apwbs/) for the fine tuning and support. For any questions or comments, drop me a line at [claudio@diciccio.net](mailto:claudio@diciccio.net)!
+Kudos to [apwbs](https://github.com/apwbs/), [ValerioGoretti](https://github.com/ValerioGoretti/), and [dave0909](https://github.com/dave0909/) for the fine tuning and support. If you want to share your experience with this template, feel free to do so (e.g., via LinkedIn [linkedin.com/in/claudiodiciccio](https://www.linkedin.com/in/claudiodiciccio/)).  For any questions or comments, drop me a line at [claudio@diciccio.net](mailto:claudio@diciccio.net)!
+
+
+This template has been used in the course of the revision rounds of a number of publications, including the ones below. It goes without saying, the list is biased by the author’s personal experience. 
 
 * [Secrecy Preservation for Online Process Monitoring with Trusted Execution Environment](https://doi.org/10.1007/978-3-032-02867-9_15) (Proc. of BPM, 2025)
 * [Measuring rule-based LTLf process specifications: A probabilistic data-driven approach](https://doi.org/10.1016/j.is.2023.102312) (Information Systems, 2024)
